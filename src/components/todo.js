@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import "./style.css";
+import React, { useState, useEffect } from 'react'
+import "./style.css"
 
 const getItemData = (() => { //getting and return a task list from local storage
     const dataList = localStorage.getItem("todoData")
     if (dataList)
         return JSON.parse(dataList) //string to array of object
     else
-        return [];
+        return []
 })
 
 const Todo = () => {
@@ -52,7 +52,7 @@ const Todo = () => {
 
         const cValue = itemList.find((value) => {
             if (id === value.id)
-                return value;
+                return value
         })
         updateData(cValue.name) //setting current data in input field
         updateEditItemData(id)  //setting id into edit state.
@@ -62,7 +62,7 @@ const Todo = () => {
     const removeItem = ((id) => {
         const updatedList = itemList.filter((value) => {
             console.log(value.name + " " + value.id)
-            return id !== value.id;
+            return id !== value.id
         })
         updateItemList(updatedList)
     })
